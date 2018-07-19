@@ -66,7 +66,7 @@
 									<li><a class="page-scroll" href="#work">Works</a></li>
 									<li><a class="page-scroll" href="#about">About</a></li>
 									<li><a class="page-scroll" href="#blog">Blog</a></li>
-									<li><a class="page-scroll" href="#contact">Contact</a></li>
+									<li><a class="page-scroll" href="#contact">Contact</a></li> 
 									<li><a class="modal-map" data-toggle="modal" data-target="#loginModal" href="#">Login</a></li>
 									<li><a class="modal-map" data-toggle="modal" data-target="#signUpModal" href="#">Sign up</a></li>
 								</ul>
@@ -81,12 +81,30 @@
 				    <div class="modal-content">
 				      <div class="modal-header">
 				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				        <h4 class="modal-title" id="mainLoginModal">Our Location</h4>
+				        <h4 class="modal-title" id="mainLoginModal">Login to access your account</h4>
 				      </div>
 				      <div class="modal-body">
-
-					    <div id="googleMap"></div>
-					    
+						<form id="contactForm" action="" method="POST">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+									    <label for="uname">Username or Email</label>
+									    <input id="uname" name="uname" type="text" class="form-control"  required="" placeholder="Username or Email">
+									</div>
+								</div>
+								<div class="col-md-6">
+								  <div class="form-group">
+								    <label for="pass">Password</label>
+								    <input id="pass" name="pass" type="password" class="form-control" required="" placeholder="Password">
+								  </div>
+								</div>
+							</div>	
+							<div class="row">
+								<div class="col-md-4">
+									<button type="submit" class="btn btn-primary form-control">Login</button>	    
+								</div>
+							</div>
+					    </form>
 				      </div>
 				    </div><!-- /.modal-content -->
 				  </div><!-- /.modal-dialog -->
@@ -101,7 +119,7 @@
 				        <h4 class="modal-title" id="mainSignUpModal">Create an account</h4>
 				      </div>
 				      <div class="modal-body">
-						<form id="contactForm" action="" method="POST">
+						<form id="signUpForm" action="" method="POST">
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
@@ -119,18 +137,17 @@
 							<div class="row">
 								<div class="col-md-6">
 								  <div class="form-group">
-								    <label for="phone">Phone</label>
-								    <input id="phone" name="phone" type="text" class="form-control" placeholder="Phone">
+								    <label for="password">Password</label>
+								    <input id="password" name="password" type="text" class="form-control" placeholder="Create a password">
 								  </div>
 								</div>
 								<div class="col-md-6">
 								  <div class="form-group">
-								    <label for="dob">Date of Birth</label>
-								    <input id="dob" name="dob" type="date" class="form-control" required="" placeholder="Subject">
+								    <label for="cpassword">Confirm Password</label>
+								    <input id="cpassword" name="cpassword" type="text" class="form-control" placeholder="Confirm Password">
 								  </div>
 								</div>
 							</div>
-
 							<div class="row">
 								<div class="col-md-6">
 								  <div class="form-group">
@@ -145,8 +162,46 @@
 								  </div>
 								</div>
 							</div>
-
-							<button type="submit" class="btn btn-primary">Send Message</button>
+							<div class="row">
+								<div class="col-md-4">
+								  <div class="form-group">
+								    <label for="gender">Gender </label>
+								    <select id="gender" name="gender" class="form-control" required="">
+										<option value="M">Male</option>
+										<option value="F">Female</option>
+										<option value="O">Other</option>
+								    </select>
+								  </div>
+								</div>
+								<div class="col-md-4">
+								  <div class="form-group">
+								    <label for="city">City </label>
+								    <select id="city" name="city" class="form-control" required="">
+										<option value="DEL">Delhi</option>
+										<option value="MUM">Mumbai</option>
+										<option value="CHE">Chennai</option>
+										<option value="KOL">Kolkata</option>
+								    </select>
+								  </div>
+								</div>
+								<div class="col-md-4">
+								  <div class="form-group">
+								    <label for="state">State </label>
+								    <select id="state" name="state" class="form-control" required="">
+										<option value="MP">Madhya Pradesh</option>
+										<option value="DL">Delhi</option>
+										<option value="TL">Telangana</option>
+								    </select>
+								  </div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<input type="checkbox" name="terms" id="terms" class="" required="">
+									<label for="terms"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, quod.</p></label>
+								</div>
+							</div>
+							<button type="submit" class="btn btn-primary center">Sign Up</button>
 						</form>
 				      </div>
 				    </div>
