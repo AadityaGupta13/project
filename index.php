@@ -1,4 +1,7 @@
-<?php require_once "header.php";?>
+<?php
+session_start();
+require_once "header.php";
+?>
 
                 <!-- slider content -->
                 <div id="x-corp-carousel" class="carousel slide hero-slide" data-ride="carousel">
@@ -711,21 +714,6 @@
 		        	</div> <!-- /.container -->
 		        </section>
 		        <!-- Blog end -->
-
-
-				<!-- Twitter start -->
-				<section id="twitter" class="twitter-feed-section section-padding">
-				    <div class="container">
-
-				      <div class="row">
-				        <div class="col-sm-8 col-sm-offset-2 text-center">
-				          <div class="twitter owl-carousel"></div>
-				        </div>
-				      </div><!-- .row -->
-
-				    </div><!-- .container -->
-				</section>
-				<!-- Twitter end -->
 
 				<!-- call-to-action start -->
 		        <section class="call-to-action section-padding">

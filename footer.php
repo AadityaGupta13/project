@@ -1,4 +1,4 @@
-<!-- footer start -->
+				<!-- footer start -->
 				<footer id="contact" class="footer-widget-wrapper">
 					<div class="container">
 						<div class="row">
@@ -70,13 +70,13 @@
 													<div class="col-md-6">
 														<div class="form-group">
 														    <label for="name">Name</label>
-														    <input id="name" name="name" type="text" class="form-control"  required="" placeholder="Name">
+														    <input id="cname" name="cname" type="text" class="form-control"  required="" placeholder="Name">
 														</div>
 													</div>
 													<div class="col-md-6">
 													  <div class="form-group">
 													    <label for="email">Email address</label>
-													    <input id="email" name="email" type="email" class="form-control" required="" placeholder="Email">
+													    <input id="cemail" name="cemail" type="email" class="form-control" required="" placeholder="Email">
 													  </div>
 													</div>
 												</div>
@@ -84,7 +84,7 @@
 													<div class="col-md-6">
 													  <div class="form-group">
 													    <label for="phone">Phone</label>
-													    <input id="phone" name="phone" type="text" class="form-control" placeholder="Phone">
+													    <input id="cphone" name="cphone" type="text" class="form-control" placeholder="Phone">
 													  </div>
 													</div>
 													<div class="col-md-6">
@@ -137,19 +137,12 @@
 	            <li><a class="offcanvas-link" href="#about">About</a></li>
 	            <li><a class="offcanvas-link" href="#blog">Blog</a></li>
 	            <li><a class="offcanvas-link" href="#contact">Contact</a></li>
-	            <li><a class="modal-map" data-toggle="modal" data-target="#loginModal" href="#">Login</a></li>
-				<li><a class="modal-map" data-toggle="modal" data-target="#signUpModal" href="#">Sign up</a></li>
+	            <li><a  href="login.php">Login</a></li>
+				<li><a  href="register.php">Sign up</a></li>
 	        </ul>
       	</div><!-- .offcanvas-menu -->
 	</div><!-- /st-container -->
 
-
-		<!-- Preloader -->
-		<div id="preloader">
-			<div id="status">
-				<div class="status-mes"></div>
-			</div>
-		</div>
 
 
 	    <!-- jQuery -->
@@ -160,8 +153,6 @@
 	    <script src="js/wow.min.js"></script>
 	    <!-- smoothscroll -->
 	    <script src="js/smoothscroll.js"></script>
-	    <!-- twitterFetcher_min -->
-	    <script src="js/twitterFetcher_min.js"></script>
 	    <!-- owl.carousel -->
 	    <script src="js/owl.carousel.min.js"></script>
 		<!-- Offcanvas Menu -->
@@ -179,7 +170,7 @@
 		<!-- Shuffle.min js -->
 		<script src="js/jquery.shuffle.min.js"></script>
 	    <!-- GOGLE MAP -->
-	    <script src="https://maps.googleapis.com/maps/api/js"></script>
+	    <!-- <script src="https://maps.googleapis.com/maps/api/js"></script> -->
 	    <!-- Custom Script -->
 	    <script src="js/scripts.js"></script>
 	</body>

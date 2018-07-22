@@ -1,3 +1,6 @@
+<?php 
+require_once "assets.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +13,7 @@
 
 	    <title>Dev Vagon</title>
 	    <!-- Web Fonts -->
-		<link href='http://fonts.googleapis.com/css?family=Roboto:400,900,700,500,300' rel='stylesheet' type='text/css'>
+		<!-- <link href='http://fonts.googleapis.com/css?family=Roboto:400,900,700,500,300' rel='stylesheet' type='text/css'> -->
 	    <!-- Flaticon CSS -->
 	    <link href="fonts/flaticon/flaticon.css" rel="stylesheet">
 	    <!-- font-awesome CSS -->
@@ -61,6 +64,23 @@
 							<!-- Collect the nav links, and other content for toggling -->
 							<div class="collapse navbar-collapse navbar-collapse">
 								<ul class="nav navbar-nav navbar-right">
+									<?php 
+									if(isset($_SESSION['username']))
+									{
+									?>
+									<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" data-toggle="dropdown"href="#">Dropdown</a>
+									   	<div class="dropdown-menu">
+									      <a class="dropdown-item" href="#">Link 1</a>
+									      <a class="dropdown-item" href="#">Link 2</a>
+									      <a class="dropdown-item" href="logout.php">Logout</a>
+									    </div>
+									</li>
+									<?php
+									}
+									else
+									{
+									?>
 									<li><a class="page-scroll" href="#home">Home</a></li>
 									<li><a class="page-scroll" href="#services">Services</a></li>
 									<li><a class="page-scroll" href="#work">Works</a></li>
@@ -69,6 +89,9 @@
 									<li><a class="page-scroll" href="#contact">Contact</a></li> 
 									<li><a class="modal-map" data-toggle="modal" data-target="#loginModal" href="#">Login</a></li>
 									<li><a class="modal-map" data-toggle="modal" data-target="#signUpModal" href="#">Sign up</a></li>
+									<?php 
+									 }
+									 ?>
 								</ul>
 							</div><!-- /.navbar-collapse -->
 						</div><!-- /.container -->
@@ -77,32 +100,70 @@
 
 				<!-- Login Modal -->
 				<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="mainLoginModal" aria-hidden="true">
-				  <div class="modal-dialog modal-lg">
+				  <div class="modal-dialog modal-md">
 				    <div class="modal-content">
 				      <div class="modal-header">
 				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				        <h4 class="modal-title" id="mainLoginModal">Login to access your account</h4>
 				      </div>
 				      <div class="modal-body">
-						<form id="contactForm" action="" method="POST">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-									    <label for="uname">Username or Email</label>
-									    <input id="uname" name="uname" type="text" class="form-control"  required="" placeholder="Username or Email">
-									</div>
+						<?php 
+							if(isset($_POST['login']))
+							{
+								$name = $_POST['uname'];
+								$pass = md5($_POST['pass']);
+
+								$result = mysqli_query($con,"SELECT * FROM user_tb WHERE name='$name'");
+								
+								if(mysqli_num_rows($result)==1)
+								{
+
+									$user = mysqli_fetch_assoc($result);
+									if($pass==$user['password'])
+									{
+										if($user['status']=='Active')
+										{
+											$_SESSION['user_login'] = "true";
+											$_SESSION['id'] = $user['id'];
+											$_SESSION['username'] = $user['name'];
+											$_SESSION['email'] = $user['email'];
+											
+											#redirect to home after verifying user
+											header("location:home.php");
+										}
+										else
+										{
+											?>
+											<div class="alert alert-warning">Account is not active.Please Activate Account to access</div>
+											<?php
+										}
+									}
+								}
+								else
+								{
+									?>
+									<div class="alert alert-danger">Username and Password combination is incorrect!</div>
+									<?php
+								}
+							}
+						?>
+						<form id="loginForm" action="" method="POST">	
+							<div class="col-md-12">
+								<div class="form-group">
+								    <label for="uname">Username or Email</label>
+								    <input id="uname" name="uname" type="text" class="form-control"  required="" placeholder="Username or Email">
 								</div>
-								<div class="col-md-6">
-								  <div class="form-group">
+							</div>
+							<div class="col-md-12">
+							    <div class="form-group">
 								    <label for="pass">Password</label>
 								    <input id="pass" name="pass" type="password" class="form-control" required="" placeholder="Password">
-								  </div>
-								</div>
-							</div>	
-							<div class="row">
-								<div class="col-md-4">
-									<button type="submit" class="btn btn-primary form-control">Login</button>	    
-								</div>
+							    </div>
+							</div>
+							<div class="text-center">	
+								<input type="submit" class="btn btn-primary" value="Login" name="login">
+								<p><a href="">forgot email or password</a></p>
+								<p><a href="">Do not have a account.Sign up</a></p>								
 							</div>
 					    </form>
 				      </div>
@@ -112,7 +173,7 @@
 
 				<!-- Sign Up Modal -->
 				<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="mainSignUpModal" aria-hidden="true">
-				  <div class="modal-dialog modal-lg">
+				  <div class="modal-dialog modal-md">
 				    <div class="modal-content">
 				      <div class="modal-header">
 				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -197,11 +258,16 @@
 							</div>
 							<div class="row">
 								<div class="col-md-12">
-									<input type="checkbox" name="terms" id="terms" class="" required="">
-									<label for="terms"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, quod.</p></label>
+									<div class="sm-4 text-center">
+										<input type="checkbox" name="terms" id="terms" class="" required="">
+										<label for="terms"><p>I have read and agree to the Terms</p></label>
+									</div>
 								</div>
 							</div>
-							<button type="submit" class="btn btn-primary center">Sign Up</button>
+							<div class="row text-center">
+								<button type="submit" class="btn btn-primary">Sign Up</button>
+								<button type="cancel" class="btn btn-danger">Cancel</button>
+							</div>
 						</form>
 				      </div>
 				    </div>
