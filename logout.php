@@ -3,12 +3,12 @@ session_start();
 if(isset($_SESSION['user_login']))
 {
 	session_destroy();
-	setcookie("message","<p class='alert alert-info'>Logged out successfully</p>",time()+2);
-	header("location:index.php");
+	setcookie("message","<p class='alert alert-info text-center'>Logged out successfully</p>",time()+3);
+	header("location:login.php");
 }
 else
 {
-	setcookie("message","<p class='alert alert-danger'>Login First</p>",time()+2);
-	header("location:index.php");
+	setcookie("message","<p class='alert alert-danger text-center'>Login First</p>",time()+3);
+	header("location:login.php");
 }
 ?>

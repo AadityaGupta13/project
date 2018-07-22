@@ -1,3 +1,4 @@
+
 <?php 
 session_start();
 require_once "header.php";
@@ -7,10 +8,6 @@ require_once "assets.php";
 <div class="container" style="width:40%; margin-top:2rem;">
 
 <?php 
-if(isset($_COOKIE['message']))
-{
-	echo $_COOKIE['message'];
-}
 if(isset($_POST['login']))
 {
 	
@@ -30,35 +27,37 @@ if(isset($_POST['login']))
 				$_SESSION['id'] = $user['id'];
 				$_SESSION['username'] = $user['name'];
 				$_SESSION['email'] = $user['email'];
-					
+				$_SESSION['avatar'] = $user['avatar'];
+
 				#redirect to home after verifying user
-				setcookie("message","<p class='alert alert-info'>Logged In</p>",time()+2);
 				header("location:home.php");
 			}	
 			else
 			{
-				?>
-				<div class="alert alert-warning">Account is not active.Please Activate Account to access</div>
-				<?php
+				setcookie("message","<p class='alert alert-warning text-center'>Account is not active.Please Activate Account to access</p>",time()+3);
 			}
 		}
 		else
 		{
-			?>
-			<div class="alert alert-danger">Incorrect password</div>
-			<?php
-
+			setcookie("message","<p class='alert alert-danger text-center'>Incorrect Password</p>",time()+3);
 		}
 	}
 	else
 	{
-		?>
-		<div class="alert alert-danger">Username and Password combination is incorrect!</div>
-		<?php
+		setcookie("message","<p class='alert alert-danger text-center'>Username and Password combination is incorrect!</p>",time()+3);
 	}
 }
 ?>	
 	<div class="well my-2">
+		<div class="text-center">
+			<h3>Login</h2>
+		</div>
+		<?php 
+			if(isset($_COOKIE['message']))
+			{
+				echo $_COOKIE['message'];
+			} 
+		?>
 		<form id="loginForm" action="" method="POST">	
 			<div class="col-md-12">
 				<div class="form-group">

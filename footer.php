@@ -127,7 +127,7 @@
 
 
     	<!-- OFFCANVAS MENU -->
-    	<div class="offcanvas-menu offcanvas-effect visible-xs">
+    	<div class="offcanvas-menu offcanvas-effect visible-sm">
 	        <button type="button" class="close" aria-hidden="true" data-toggle="offcanvas" id="off-canvas-close-btn">&times;</button>
 	        <h3>Sidebar Menu</h3>
 	        <ul class="list-unstyled">

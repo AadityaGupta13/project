@@ -171,6 +171,7 @@ Form Style
 .form-control {
 	height: 45px;
 	box-shadow: none;
+	margin:5px;
 }
 
 .form-control:focus {
@@ -226,6 +227,11 @@ NAVIGATION
 	.sticky .navbar-nav {
 		padding-top: 10px;
 	}
+}
+.navlink{
+	outline: none;
+	text-decoration: none;
+	display: inline;
 }
 
 
@@ -932,64 +938,6 @@ Blog Homepage Section
 #blog .more-post {
     margin-top: 30px;
 }
-
-
-
-/* ------------------------------------------------------------------
-TWITTER FEED SECTION
---------------------------------------------------------------------- */
-.twitter-feed-section {
-    background-color: #f6f6f6;
-}
-.twitter-feed-section a:hover {
-	text-decoration: none;
-}
-
-.twitter {
-	font-size: 21px;
-	line-height: 30px;
-	font-style: italic;
-}
-
-p.timePosted {
-	font-size: 14px;
-	font-style: normal;
-	margin-top: 60px;
-	text-transform: uppercase;
-	position: relative;
-	padding-left: 24px;
-	display: inline-block;
-	margin-bottom: 0;
-	left: 10%;
-}
-p.timePosted::before {
-	content: "\f111";
-	font-family: FontAwesome;
-	position: absolute;
-	top: 0;
-	left: 6px;
-	font-size: 7px;
-	color: #6d6d6d;
-}
-
-
-.user img {
-	display: none;
-}
-.user span:first-of-type {
-	display: none;
-}
-.user span {
-	bottom: 0;
-	position: absolute;
-	left: 34%;
-	font-size: 14px;
-	text-transform: uppercase;
-	font-style: normal;
-	color: #6d6d6d;
-	display: block;
-}
-
 
 
 
